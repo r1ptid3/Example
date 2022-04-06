@@ -1,0 +1,47 @@
+/* ----- Main Layout Styles ----- */
+body{
+	overflow-x: hidden;
+	background-color: #000000;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-image: url('../img/header-bg.png');
+}
+.page-wrapper{
+	display: grid;
+	min-height: 100vh;
+	position: relative;
+    grid-template-columns: 100%;
+	grid-template-rows: auto 1fr auto;
+}
+.r1-main{
+	width: 100%;
+}
+.r1-container{
+    width: 80rem;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 2rem;
+}
+
+/* ----- Main Layout Media Queries ----- */
+@include mq($until: desktop) { // max-width: 1279px
+	.r1-container{
+    	width: 64rem;
+	}
+}
+@include mq($until: tabletLandscape) { // max-width: 1023px
+	.r1-container{
+    	width: 100%;
+	}
+}
+@include mq($until: tabletPortrait) { // max-width: 767px
+	body{
+		background-position: center -2rem;
+		background-image: url('../img/mobile-header-bg.png');
+	}
+	.r1-container{
+    	width: 100%;
+    	padding: 0 1.5rem;
+	}
+}

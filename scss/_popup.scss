@@ -1,0 +1,144 @@
+/* ----- Popup Styles ----- */
+.r1-popup-wrapper{
+	opacity: 0;
+	z-index: 10;
+	position: fixed;
+	left: 0; right: 0;
+	bottom: 0; top: 0;
+	pointer-events: none;
+	@include transition(all .3s ease);
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+	}
+	.r1-popup-overlay{
+		left: 0; right: 0;
+		bottom: 0; top: 0;
+		position: absolute;
+		background-color: rgba(50,59,38, .65);
+	}
+	.r1-popup{
+		top: 50%;
+		left: 50%;
+		width: 77rem;
+		position: absolute;
+		@include transform(translate(-50%, -50%));
+		@include flex(row, nowrap, flex-start, center);
+		&__close{
+			top: 1rem;
+			z-index: 3;
+			right: 1rem;
+			color: #000;
+			cursor: pointer;
+			font-size: 2.5rem;
+			position: absolute;
+			line-height: 1.5rem;
+			@include transition(all .3s ease);
+			&:hover{
+				color: $accent;
+			}
+		}
+		&__image{
+			z-index: 2;
+			width: 25.5rem;
+			height: 25.5rem;
+			position: relative;
+			@include flex-shrink(0);
+			background-color: #cad7c6;
+			@include border-radius(50%);
+			@include inline-flex(center, center);
+		}
+		&__content{
+			z-index: 1;
+			overflow: auto;
+			max-height: 80vh;
+			position: relative;
+			margin-left: -12.75rem;
+			border: 2px solid #5a6251;
+			background-color: #fdfcf8;
+			padding: 3rem 3rem 3rem 11.75rem;
+			h3{
+				text-transform: uppercase;
+				span{
+					color: $accent;
+				}
+			}
+			div{
+				position: relative;
+				padding-top: 2.215rem;
+				padding-left: 4.125rem;
+				&:before{
+					content: '';
+					top: 0;
+					height: 2px;
+					left: 4.125rem;
+					position: absolute;
+					background-color: #e4e3dc;
+					width: calc(100% - 4.125rem);
+				}
+				p{
+					color: #6e7468;
+					font-size: 1rem;
+					line-height: 1.875;
+				}
+			}
+		}
+		@include mq($until: desktop) { // max-width: 1365px
+			width: 60rem;
+			.r1-popup__image{
+				width: 20rem;
+				height: 20rem;
+				img{
+					max-width: 60%;
+				}
+			}
+			.r1-popup__content{
+				margin-left: -11rem;
+				padding: 2rem 4rem 2rem 11.75rem;
+				.h1{
+					font-size: 1.75rem;
+				}
+				div{
+					padding-left: 2rem;
+					padding-top: 1.5rem;
+					&:before{
+						left: 2rem;
+					}
+				}
+			}
+		}
+		@include mq($until: tabletLandscape) { // max-width: 1023px
+			width: 46rem;
+			.r1-popup__content{
+				margin-left: -10rem;
+				div{
+					padding-left: 0;
+					&:before{
+						left: 0;
+					}
+					p{
+						font-size: 0.875rem;
+					}
+				}
+			}
+		}
+		@include mq($until: tabletPortrait) { // max-width: 767px
+			width: calc(100% - 3rem);
+			.r1-popup__image{
+				display: none;
+			}
+			.r1-popup__content{
+				margin-left: 0;
+				padding: 1.5rem;
+				.h1{
+					font-size: 1.25rem;
+				}
+			}
+			.r1-popup__close{
+				top: 0.5rem;
+				right: 0.75rem;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}

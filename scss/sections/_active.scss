@@ -1,0 +1,203 @@
+/* ----- Refferal section styles ----- */
+.r1-active{
+	margin-top: -8rem;
+	h3{
+		text-align: center;
+	}
+	&__list{
+		margin: 0 -1rem -2rem;
+		@include flex(row, wrap, flex-start, flex-start);
+		&__item{
+			padding: 1.5rem;
+			margin: 0 1rem 2rem;
+			width: calc(33.3% - 2rem);
+			@include border-radius(1rem);
+			background-color: #141416;
+			&__heading{
+				@include flex(row, nowrap, space-between, center);
+				.status{
+					font-size: 0.75rem;
+					padding: 0.25rem 0.75rem;
+					@include border-radius(1.5rem);
+					&.active{
+						color: #14F095;
+						background: rgba(20,240,149, .1);
+					}
+				}
+				.plan{
+					span{
+						opacity: 0.7;
+						display: inline-block;
+					}
+				}
+			}
+			&__slider{
+				overflow: hidden;
+				margin-top: 2rem;
+				padding-bottom: 0.5rem;
+				@include flex(row, wrap, space-between, center);
+				.value{
+					.number{
+						font-size: 1.5rem;
+					}
+					.currency{
+						opacity: .5;
+						margin-left: 0.25rem;
+					}
+				}
+				.progress-bar{
+					height: 2px;
+					width: 100%;
+					position: relative;
+					margin: 1.5rem 10.5px 0 7px;
+					background-color: #232325;
+					&:before{
+						content: '';
+						top: -6px;
+						left: -7px;
+						z-index: 1;
+						width: 14px;
+						height: 14px;
+						position: absolute;
+						background-color: $accent;
+						@include border-radius(50%);
+					}
+					&:after{
+						content: '';
+						left: 0;
+						right: 0;
+						top: -6px;
+						height: 14px;
+						position: absolute;
+						background-size: 112% auto;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-image: url('../img/wave.svg');
+					}
+					.progress{
+						left: 0;
+						top: -6px;
+						z-index: 1;
+						width: 14px;
+						height: 14px;
+						position: absolute;
+						@include transition(all 0.1s linear);
+						&.color-1{
+							&:before{
+								background-color: #3b7795;
+							}
+						}
+						&.color-2{
+							&:before{
+								background-color: #653fb5;
+							}
+						}
+						&.color-3{
+							&:before{
+								background-color: #9945ff;
+							}
+						}
+						&:before{
+							content: '';
+							top: 0;
+							bottom: 0;
+							z-index: 1;
+							left: -7px;
+							right: 7px;
+							position: absolute;
+							background-color: $accent;
+							@include border-radius(50%);
+							box-shadow: 2px 0 0 1px #232322;
+							@include transition(background-color .3s linear);
+						}
+						&:after{
+							content: '';
+							top: 0;
+							left: 0;
+							z-index: -1;
+							height: 14px;
+							width: 100vw;
+							position: absolute;
+							background: linear-gradient(to bottom, #141416 6px, #232325 6px, #232325 8px, #141416 8px);
+						}
+					}
+				}
+			}
+			&__footer{
+				margin-top: 1.5rem;
+				@include flex(row, nowrap, space-between, center);
+				.dates{
+					.date{
+						opacity: 0.5;
+						margin-right: 0.75rem;
+						&:first-child{
+							padding-right: 1.5rem;
+							position: relative;
+							&:after{
+								content: '';
+								right: 0;
+								top: 50%;
+								width: 10px;
+								height: 10px;
+								position: absolute;
+								background-size: contain;
+								background-position: center;
+								background-repeat: no-repeat;
+								background-image: url('../img/arrow.svg');
+								@include transform(translateY(-50%));
+							}
+						}
+						&:last-child{
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mq($until: desktop) {
+	.r1-active{
+		&__list{
+			margin: 0 -0.75rem -1.5rem;
+			&__item{
+				padding: 1rem;
+				margin: 0 0.75rem 1.5rem;
+				width: calc(33.3% - 1.5rem);
+				&__slider{
+					.value{
+						.number{
+							font-size: 1.25rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mq($until: tabletLandscape) {
+	.r1-active{
+		&__list{
+			&__item{
+				width: calc(50% - 1.5rem);
+			}
+		}
+	}
+}
+
+@include mq($until: tabletPortrait) {
+	.r1-active{
+		h3{
+			font-size: 2rem;
+		}
+		&__list{
+			margin: 0 0 -1.5rem;
+			&__item{
+				width: 100%;
+				margin: 0 0 1.5rem;
+			}
+		}
+	}
+}

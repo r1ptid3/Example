@@ -1,0 +1,83 @@
+/* ----- Footer Styles ----- */
+.r1-footer{
+	padding: 4rem 0 2rem;
+	margin: 0 -1rem -2rem;
+	border-top: 1px solid rgba(255,255,255, 0.2);
+	@include flex(row, wrap, flex-start, center);
+	&__col{
+		margin: 0 1rem 2rem;
+		width: calc(25% - 2rem);
+		&:last-child{
+			-webkit-justify-self: flex-end;
+			justify-self: flex-end;
+		}
+		&.logotype{
+			a{
+				font-size: 0;
+				line-height: 0;
+				display: inline-block;
+			}
+		}
+		.subtitle{
+			opacity: 0.5;
+		}
+		&:not(.logotype){
+			a{
+				position: relative;
+				&:before{
+					content: '';
+					left: 0;
+					width: 0;
+					height: 1px;
+					bottom: -4px;
+					position: absolute;
+					background-color: $main;
+				}
+				&:hover{
+					&:before{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mq($until: desktop) {
+	.r1-footer{
+		padding: 3rem 0 1rem;
+		@include justify-content(space-between);
+		&__col{
+			width: auto;
+		}
+	}
+}
+
+@include mq($until: tabletLandscape) {
+	.r1-footer{
+		margin: 0;
+		padding: 1.5rem 0 0;
+		&__col{
+			margin: 0 0 2rem;
+			font-size: 0.875rem;
+			&:last-child{
+				width: 100%;
+				text-align: center;
+			}
+			.subtitle{
+				margin-bottom: 0.25rem;
+			}
+		}
+	}
+}
+
+@include mq($until: tabletPortrait) {
+	.r1-footer{
+		padding: 1.5rem 0 0.5rem;
+		&__col{
+			width: 100%;
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+	}
+}

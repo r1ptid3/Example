@@ -1,0 +1,20 @@
+/* ----- Refferal section styles ----- */
+.r1-partners{
+	text-align: center;
+	padding: 8.75rem 0 7.5rem;
+	img{
+		filter: grayscale(100%);
+	}
+}
+
+@include mq($until: desktop) {
+	.r1-partners{
+		padding: 5.75rem 0 5rem;
+	}
+}
+
+@include mq($until: tabletLandscape) {
+	.r1-partners{
+		padding: 3.75rem 0 3rem;
+	}
+}

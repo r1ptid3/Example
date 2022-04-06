@@ -1,0 +1,112 @@
+/* ----- Components Styles ----- */
+
+/* ----- Button ----- */
+.r1-button{
+	z-index: 1;
+	color: $main;
+	font-weight: 600;
+	line-height: 1.25;
+	padding: 0.5rem 1.5rem 0.625rem;
+	@include border-radius(1.5rem);
+	@include inline-flex(center, baseline);
+	&.style-1{
+		border: 1px solid $main;
+		&:before{
+			background-color: $main;
+		}
+		img{
+			margin-right: 0.75rem;
+					align-self: center;
+			-webkit-align-self: center;
+		}
+		&:hover{
+			color: #000;
+			background-color: $main;
+		}
+	}
+	&.style-2{
+		color: #000;
+		background-color: $main;
+		border: 1px solid $main;
+		&:hover{
+			color: $main;
+			border-color: #000;
+			background-color: #000;
+		}
+	}
+	&.style-3{
+		color: $main;
+		min-width: 18.5rem;
+		font-size: 0.875rem;
+		border: 2px solid #000;
+		background-color: #000;
+		@include border-radius(2rem);
+		padding: 1rem 2rem 1.125rem;
+		&:hover{
+			color: #000;
+			background-color: transparent;
+		}
+	}
+	&.style-4{
+		border: 0;
+		color: $main;
+		font-weight: 600;
+		font-size: 0.875rem;
+		padding: 1rem 1.5rem;
+		background-color: #212124;
+		@include transition(all .25s ease-in);
+		&:hover{
+			color: #000;
+			background-color: $accent;
+		}
+	}
+}
+
+@include mq($until: tabletPortrait) {
+	.r1-button{
+		&.style-2{
+			&:hover{
+				border-color: $main;
+			}
+		}
+	}
+}
+
+/* ----- Success Message -----*/
+#success-copy{
+	left: 50%;
+	top: 0rem;
+	z-index: 9;
+	opacity: 0;
+	position: fixed;
+	pointer-events: none;
+	padding: 0.75rem 1.5rem;
+	background-color: #0a784b;
+	@include border-radius(1.5rem);
+	@include transition(all .3s ease);
+	@include transform(translateX(-50%));
+	&.active{
+		opacity: 1;
+		top: 2rem;
+	}
+}
+@include mq($until: tabletPortrait) {
+	#success-copy{
+		width: 80vw;
+		max-width: 25rem;
+		text-align: center;
+		@include border-radius(0.5rem);
+	}
+}
+
+/* ----- Animated Sections -----*/
+.r1-animation{
+    opacity: 0;
+    top: 1.5rem;
+    position: relative;
+    @include transition(all .4s linear);
+    &.animated{
+        top: 0;
+        opacity: 1;
+    }
+}

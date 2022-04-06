@@ -1,0 +1,27 @@
+/* ----- Defaults ----- */
+@import '../../node_modules/sass-mq/mq';
+@import 'default/mq-predefined';
+
+@import 'default/resete';
+@import 'default/fonts';
+@import 'default/colors';
+@import 'default/mixins';
+@import 'default/normalize';
+@import 'default/default';
+
+/* ----- Structure ----- */
+@import 'layout';
+@import 'components';
+
+/* ----- Header ----- */
+@import 'header';
+
+/* ----- Sections ----- */
+@import 'sections/staking';
+@import 'sections/plans';
+@import 'sections/refferal';
+@import 'sections/active';
+@import 'sections/partners';
+
+/* ----- Footer ----- */
+@import 'footer';

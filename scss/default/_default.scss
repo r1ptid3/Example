@@ -1,0 +1,195 @@
+/*----- Default styles -----*/
+body, button, input, select, optgroup, textarea{
+    color: $main;
+    font-family: 'Hellix', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+body {
+    min-width: 320px;
+    &.disable-scroll{
+        overflow: hidden;
+    }
+}
+* {
+    @include box-sizing();
+    outline: none !important;
+    -webkit-font-smoothing: antialiased;
+}
+input[type="number"],
+input[type="submit"],
+input[type="button"],
+input[type="password"],
+input[type="text"],
+input[type="tel"],
+input[type="time"],
+input[type="email"],
+input[type="url"],
+textarea{
+    width: 100%;
+    color: $main;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.375;
+    padding: 1em 1.25em;
+    background-color: transparent;
+    @include border-radius(0.5rem);
+    border: 1px solid rgba(255,255,255, .2);
+}
+/* All browsers except Edge */
+@supports not (-ms-ime-align:auto) {
+    input::placeholder,
+    select::placeholder,
+    textarea::placeholder{
+        color: #666666 !important;
+        opacity: .8 !important;
+    }
+}
+main{
+    position: relative;
+    z-index: 2;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+    line-height: 1.3;
+    font-weight: 700;
+    margin-top: 1.25em;
+    margin-bottom: 0.75em;
+    font-family: 'Hellix', sans-serif;
+    &.semi-bold{
+        font-weight: 600;
+    }
+    &:first-child{
+        margin-top: 0;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+h1, .h1{
+    font-size: 3.5rem; // 56px
+}
+h2, .h2{
+    font-size: 3rem; // 48px
+}
+h3, .h3{
+    font-size: 2.5rem; // 40px
+}
+h4, .h4{
+    font-size: 2rem; // 32px
+}
+h5, .h5{
+    font-size: 1.5rem; // 24px
+}
+h6, .h6{
+    font-size: 1.25rem; // 20px
+}
+
+ul, ol, blockquote, address, pre, p{
+    margin-bottom: 1em;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+strong{
+    font-weight: 500;
+}
+a{
+    color: $main;
+    @include transition(all .25s ease-in);
+    &:before{
+        @include transition(inherit);
+    }
+}
+.r1-main{
+    ul{
+        li{
+            position: relative;
+            padding-left: 2.75rem;
+            &:not(:last-child){
+                margin-bottom: 0.625em;
+            }
+            &:before{
+                content: '';
+                left: 0;
+                top: 0.3em;
+                width: 12px;
+                height: 12px;
+                position: absolute;
+            }
+        }
+    }
+}
+.alignleft{
+    float: left;
+    margin-right: 1.875rem;
+    margin-left: 3.125rem;
+}
+.aligncenter{
+    text-align: center;
+}
+.alignright{
+    float: right;
+    margin-left: 1.875rem;
+    margin-right: 3.125rem;
+}
+
+@include mq($until: desktop) {
+    h1, .h1{
+        font-size: 3rem; // 48px
+    }
+    h2, .h2{
+        font-size: 2.5rem; // 40px
+    }
+    h3, .h3{
+        font-size: 2rem; // 32px
+    }
+    h4, .h4{
+        font-size: 1.75rem; // 28px
+    }
+    h5, .h5{
+        font-size: 1.375rem; // 22px
+    }
+    h6, .h6{
+        font-size: 1.125rem; // 18px
+    }
+}
+
+@include mq($until: tabletLandscape) {
+    h1, .h1{
+        font-size: 2.75rem; // 44px
+    }
+    h2, .h2{
+        font-size: 2.25rem; // 36px
+    }
+    h3, .h3{
+        font-size: 1.75rem; // 28px
+    }
+    h4, .h4{
+        font-size: 1.5rem; // 24px
+    }
+    h5, .h5{
+        font-size: 1.25rem; // 20px
+    }
+}
+
+@include mq($until: tabletPortrait) {
+    h1, .h1{
+        font-size: 2.5rem; // 40px
+    }
+    h2, .h2{
+        font-size: 2rem; // 32px
+    }
+    h3, .h3{
+        font-size: 1.5rem; // 24px
+    }
+    h4, .h4{
+        font-size: 1.375rem; // 22px
+    }
+    h5, .h5{
+        font-size: 1.125rem; // 18px
+    }
+    h6, .h6{
+        font-size: 1rem; // 16px
+    }
+}

@@ -1,0 +1,205 @@
+/* ----- Staking section styles ----- */
+.r1-staking{
+	padding-top: 8.75rem;
+	&__heading{
+		@include flex(row, wrap, space-between, flex-start);
+		&__col{
+			width: 50%;
+			text-align: center;
+			&:first-child{
+				.staking-number{
+					border-right: 1px solid rgba(255,255,255,.2);
+				}
+			}
+		}
+		.staking-title{
+			opacity: .7;
+			margin-bottom: 0.75rem;
+		}
+		.staking-number{
+			margin: 0;
+		}
+	}
+	&__content{
+		margin-top: 5.75rem;
+		&__main{
+			padding: 1.375rem 1.5rem 1.375rem 2.5rem;
+			background-color: $accent;
+			@include border-radius(1rem);
+			@include flex(row, nowrap, space-between, center);
+			div{
+				@include inline-flex(flex-start, center);
+				color: #000;
+				p{
+					font-weight: 600;
+					font-size: 0.875rem;
+					margin: 0 1.5rem 0 0;
+					text-transform: uppercase;
+				}
+				span{
+					margin: 0;
+				}
+			}
+			.r1-button{
+
+			}
+		}
+		&__desc{
+			margin: 0 1.5rem;
+			padding: 3.5rem 2.5rem 0;
+			background-color: #141416;
+			border-bottom-left-radius: 1rem;
+			border-bottom-right-radius: 1rem;
+			@include flex(row, wrap, space-between, flex-start);
+			> div{
+				width: 33.3%;
+				padding: 0 0.5rem;
+				text-align: center;
+				@include flex-shrink(0);
+				p{
+					margin: 0;
+					opacity: 0.7;
+					font-weight: 600;
+					font-size: 0.75rem;
+					text-transform: uppercase;
+				}
+				h6{
+					margin-top: 0.625rem;
+					text-transform: uppercase;
+				}
+			}
+			> p{
+				width: 100%;
+				opacity: .7;
+				padding: 2.5rem;
+				font-weight: 600;
+				text-align: center;
+				margin-top: 3.5rem;
+				font-size: 0.875rem;
+				letter-spacing: 0.01em;
+				@include flex-shrink(0);
+				text-transform: uppercase;
+				border-top: 1px solid rgba(255,255,255, .1);
+			}
+		}
+	}
+}
+
+@include mq($until: desktop) {
+	.r1-staking{
+		padding-top: 6.5rem;
+		&__content{
+			margin-top: 3rem;
+			&__main{
+				div{
+					@include flex-direction(column);
+					@include align-items(flex-start);
+					p{
+						margin: 0;
+						br{
+							display: none;
+						}
+					}
+				}
+			}
+			&__desc{
+				padding: 2.5rem 1.5rem 0;
+				> p{
+					margin-top: 2.5rem;
+				}
+			}
+		}
+	}
+}
+
+@include mq($until: tabletLandscape) {
+	.r1-staking{
+		&__content{
+			&__main{
+				padding: 1.375rem 1.5rem;
+				@include flex-wrap(wrap);
+				div{
+					width: 50%;
+				}
+				.r1-button{
+					width: 100%;
+					margin-top: 1rem;
+				}
+			}
+			&__desc{
+				padding-top: 2rem;
+				margin-bottom: -2rem;
+				> div{
+					width: 50%;
+					text-align: left;
+					padding: 0 0.5rem;
+					margin-bottom: 2rem;
+				}
+				> p{
+					margin-top: 0;
+					padding: 1.5rem;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}
+
+@include mq($until: tabletPortrait) {
+	.r1-staking{
+		&__heading{
+			&__col{
+				width: 100%;
+				&:first-child{
+					margin-bottom: 2rem;
+					.staking-number{
+						border-right: 0;
+						padding-bottom: 2rem;
+						border-bottom: 1px solid rgba(255,255,255,.2);
+					}
+				}
+				.staking-title{
+					font-size: 0.875rem;
+				}
+				.staking-number{
+					font-size: 2.5rem;
+					display: inline-block;
+				}
+			}
+		}
+		&__content{
+			margin-top: 4rem;
+			&__main{
+				padding: 1.5rem 1rem 1rem;
+				div{
+					width: 100%;
+					margin-bottom: 1.5rem;
+					@include align-items(center);
+					span{
+						font-size: 2rem;
+					}
+				}
+				.r1-button{
+					min-width: 0;
+					margin-top: 0.5rem;
+				}
+			}
+			&__desc{
+				padding: 0;
+				background: none;
+				margin: 3.5rem 0 0;
+				> div{
+					padding: 0;
+					width: 100%;
+					text-align: center;
+					margin-bottom: 2.5rem;
+				}
+				> p{
+					padding: 2rem 0 0;
+					font-size: 0.875rem;
+					border-top-color: rgba(255,255,255,.2);
+				}
+			}
+		}
+	}
+}
